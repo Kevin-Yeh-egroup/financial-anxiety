@@ -12,11 +12,11 @@ interface QuestionCardProps {
 }
 
 const ANSWER_SCALES = [
-  { value: 1, label: '完全不符', description: '非常不同意' },
-  { value: 2, label: '不太符', description: '不同意' },
-  { value: 3, label: '普通', description: '中立' },
-  { value: 4, label: '比較符', description: '同意' },
-  { value: 5, label: '非常符', description: '非常同意' },
+  { value: 1, label: '非常不同意' },
+  { value: 2, label: '不同意' },
+  { value: 3, label: '普通' },
+  { value: 4, label: '同意' },
+  { value: 5, label: '非常同意' },
 ];
 
 export default function QuestionCard({
@@ -74,13 +74,8 @@ export default function QuestionCard({
                       <div className="w-2 h-2 bg-primary-foreground rounded-full" />
                     )}
                   </div>
-                  <div>
-                    <div className="font-medium text-foreground">
-                      {scale.label}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {scale.description}
-                    </div>
+                  <div className="font-medium text-foreground">
+                    {scale.label}
                   </div>
                 </div>
               </button>

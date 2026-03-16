@@ -8,29 +8,25 @@ export function calculateScores(
   answers: Record<number, number>
 ): AssessmentResult {
   const scores = {
-    income: 0,
-    debt: 0,
-    planning: 0,
-    emergency: 0,
-    relationship: 0,
+    survival: 0,
+    anticipation: 0,
+    helplessness: 0,
+    avoidance: 0,
+    hypervigilance: 0,
   };
-
-  let totalAnswers = 0;
 
   QUESTIONS.forEach((question) => {
     if (answers[question.id] !== undefined) {
       scores[question.category] += answers[question.id];
-      totalAnswers++;
     }
   });
 
-  // Calculate average for each category
   const categoryCount = {
-    income: 0,
-    debt: 0,
-    planning: 0,
-    emergency: 0,
-    relationship: 0,
+    survival: 0,
+    anticipation: 0,
+    helplessness: 0,
+    avoidance: 0,
+    hypervigilance: 0,
   };
 
   QUESTIONS.forEach((question) => {
@@ -46,10 +42,9 @@ export function calculateScores(
     }
   });
 
-  // Find primary type (highest score)
   const primaryType = (
     Object.entries(scores).sort(([, a], [, b]) => b - a)[0][0] as string
-  ) || 'income';
+  ) || 'survival';
 
   return {
     scores,

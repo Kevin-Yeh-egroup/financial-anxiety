@@ -33,13 +33,6 @@ export default function HeroSection({ onStartTest }: HeroSectionProps) {
           >
             開始檢測
           </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-border text-foreground hover:bg-muted"
-          >
-            了解更多
-          </Button>
         </div>
 
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">

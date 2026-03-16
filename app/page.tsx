@@ -5,6 +5,7 @@ import HeroSection from '@/components/hero-section';
 import AssessmentFlow from '@/components/assessment-flow';
 import ResultsDisplay from '@/components/results-display';
 import FeaturesSection from '@/components/features-section';
+import AnxietyTypesSection from '@/components/anxiety-types-section';
 import FAQSection from '@/components/faq-section';
 import Footer from '@/components/footer';
 import { type AssessmentResult } from '@/lib/assessment-data';
@@ -34,6 +35,7 @@ export default function Home() {
       {currentState === 'landing' && (
         <>
           <HeroSection onStartTest={handleStartTest} />
+          <AnxietyTypesSection />
           <FeaturesSection />
           <FAQSection />
           <Footer />

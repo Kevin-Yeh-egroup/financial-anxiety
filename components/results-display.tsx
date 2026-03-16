@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import AnxietyRadarChart from './radar-chart';
-import { ANXIETY_PROFILES, type AssessmentResult } from '@/lib/assessment-data';
+import { ANXIETY_PROFILES, GUIDANCE_CONFIG, type AssessmentResult, type GuidanceAction } from '@/lib/assessment-data';
 import { getScoreInterpretation } from '@/lib/assessment-utils';
 
 interface ResultsDisplayProps {
@@ -12,11 +13,55 @@ interface ResultsDisplayProps {
   onRetake: () => void;
 }
 
+function GuidanceButton({ action, color }: { action: GuidanceAction; color: string }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <a
+      href={action.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="flex items-start gap-4 rounded-xl p-5 border-2 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
+      style={{
+        backgroundColor: hovered ? color : 'transparent',
+        borderColor: hovered ? color : `${color}50`,
+        color: hovered ? '#fff' : 'inherit',
+      }}
+    >
+      <span className="text-2xl flex-shrink-0 mt-0.5">{action.icon}</span>
+      <div className="flex-1 min-w-0">
+        <p
+          className="font-bold text-base mb-1 transition-colors duration-200"
+          style={{ color: hovered ? '#fff' : color }}
+        >
+          {action.label}
+        </p>
+        <p
+          className="text-sm leading-snug transition-colors duration-200"
+          style={{ color: hovered ? 'rgba(255,255,255,0.85)' : undefined }}
+        >
+          {!hovered && <span className="text-muted-foreground">{action.description}</span>}
+          {hovered && action.description}
+        </p>
+      </div>
+      <span
+        className="text-lg flex-shrink-0 self-center transition-colors duration-200"
+        style={{ color: hovered ? 'rgba(255,255,255,0.7)' : `${color}80` }}
+      >
+        →
+      </span>
+    </a>
+  );
+}
+
 export default function ResultsDisplay({
   result,
   onRetake,
 }: ResultsDisplayProps) {
   const primaryProfile = ANXIETY_PROFILES[result.primaryType];
+  const guidance = GUIDANCE_CONFIG[result.primaryType];
 
   const radarData = Object.entries(result.scores).map(([key, value]) => ({
     name: ANXIETY_PROFILES[key]?.radarLabel || key,
@@ -32,12 +77,45 @@ export default function ResultsDisplay({
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             您的焦慮類型
           </h1>
-          <div className="inline-block">
-            <div className="bg-primary/10 border-2 border-primary rounded-2xl px-8 py-6">
-              <h2 className="text-3xl font-bold text-primary mb-2">
+          <div className="inline-block w-full max-w-lg">
+            <div
+              className="rounded-2xl px-8 py-8 border-2"
+              style={{
+                backgroundColor: `${primaryProfile.color}14`,
+                borderColor: primaryProfile.color,
+              }}
+            >
+              <div className="flex justify-center mb-4">
+                <div className="relative w-44 h-44">
+                  <Image
+                    src={primaryProfile.illustration}
+                    alt={primaryProfile.name}
+                    fill
+                    className="object-contain"
+                    sizes="176px"
+                    priority
+                  />
+                </div>
+              </div>
+              <h2
+                className="text-3xl font-bold mb-1"
+                style={{ color: primaryProfile.color }}
+              >
                 {primaryProfile.name}
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p
+                className="text-sm font-semibold mb-4 px-3 py-1 rounded-full inline-block"
+                style={{
+                  backgroundColor: `${primaryProfile.color}22`,
+                  color: primaryProfile.color,
+                }}
+              >
+                {primaryProfile.subtitle}
+              </p>
+              <p className="text-base text-foreground leading-relaxed mb-3">
+                {primaryProfile.relatable}
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {primaryProfile.description}
               </p>
             </div>
@@ -87,11 +165,12 @@ export default function ResultsDisplay({
                 <CardHeader>
                   <CardTitle className="text-xl flex items-center gap-2">
                     <span
-                      className="w-3 h-3 rounded-full"
+                      className="w-3 h-3 rounded-full flex-shrink-0"
                       style={{ backgroundColor: profile.color }}
                     />
-                    {profile.radarLabel}
+                    <span>{profile.name}</span>
                   </CardTitle>
+                  <p className="text-xs text-muted-foreground mt-1">{profile.subtitle}</p>
                 </CardHeader>
                 <CardContent>
                   <div className="mb-4">
@@ -150,26 +229,61 @@ export default function ResultsDisplay({
           </CardContent>
         </Card>
 
-        {/* Call to Action */}
-        <div className="bg-card border border-border rounded-2xl p-8 text-center mb-12">
-          <h3 className="text-2xl font-bold text-foreground mb-4">
-            需要更多幫助？
-          </h3>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            如果您的焦慮程度較高，考慮尋求專業的財務顧問或心理健康專業人士的幫助。
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              onClick={onRetake}
-              variant="outline"
-              className="sm:min-w-48"
-            >
-              重新評估
-            </Button>
-            <Button className="bg-primary hover:bg-primary/90 sm:min-w-48">
-              分享結果
-            </Button>
+        {/* Guided Actions */}
+        {guidance && (
+          <div
+            className="rounded-2xl p-8 mb-12 border-2"
+            style={{
+              backgroundColor: `${primaryProfile.color}0d`,
+              borderColor: `${primaryProfile.color}40`,
+            }}
+          >
+            <div className="mb-6">
+              <p className="text-lg font-semibold text-foreground mb-2">
+                {guidance.intro}
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                {guidance.primaryCta}
+              </p>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                {guidance.secondaryCta}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {guidance.actions.map((action) => (
+                <GuidanceButton
+                  key={action.url}
+                  action={action}
+                  color={primaryProfile.color}
+                />
+              ))}
+            </div>
           </div>
+        )}
+
+        {/* Retake & Share */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <Button
+            onClick={onRetake}
+            variant="outline"
+            className="sm:min-w-48"
+          >
+            重新測驗
+          </Button>
+          <Button
+            onClick={() => {
+              if (navigator.share) {
+                navigator.share({ title: '我的財務焦慮測驗結果', url: window.location.href });
+              } else {
+                navigator.clipboard.writeText(window.location.href);
+              }
+            }}
+            className="sm:min-w-48"
+            style={{ backgroundColor: primaryProfile.color, borderColor: primaryProfile.color }}
+          >
+            分享結果
+          </Button>
         </div>
 
         {/* Privacy Notice */}

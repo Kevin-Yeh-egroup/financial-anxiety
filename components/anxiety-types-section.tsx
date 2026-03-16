@@ -57,7 +57,7 @@ export default function AnxietyTypesSection() {
                   </h3>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  {profile.relatable}
+                  {profile.relatable.split('\n\n')[0]}
                 </p>
               </CardContent>
             </Card>

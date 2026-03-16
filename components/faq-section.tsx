@@ -43,8 +43,8 @@ export default function FAQSection() {
               </button>
 
               {openIndex === idx && (
-                <CardContent className="pt-0 pb-6 px-6 border-t border-border">
-                  <p className="text-muted-foreground leading-relaxed">
+                <CardContent className="pt-4 pb-6 px-6 border-t border-border">
+                  <p className="text-muted-foreground leading-loose">
                     {item.answer}
                   </p>
                 </CardContent>

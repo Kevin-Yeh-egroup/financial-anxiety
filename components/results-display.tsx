@@ -98,13 +98,13 @@ export default function ResultsDisplay({
                 </div>
               </div>
               <h2
-                className="text-3xl font-bold mb-1"
+                className="text-3xl font-bold mb-2"
                 style={{ color: primaryProfile.color }}
               >
                 {primaryProfile.name}
               </h2>
               <p
-                className="text-sm font-semibold mb-4 px-3 py-1 rounded-full inline-block"
+                className="text-sm font-semibold mb-6 px-3 py-1 rounded-full inline-block"
                 style={{
                   backgroundColor: `${primaryProfile.color}22`,
                   color: primaryProfile.color,
@@ -112,12 +112,9 @@ export default function ResultsDisplay({
               >
                 {primaryProfile.subtitle}
               </p>
-              <p className="text-base text-foreground leading-relaxed mb-3">
+              <div className="text-base text-foreground leading-loose text-left whitespace-pre-line">
                 {primaryProfile.relatable}
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {primaryProfile.description}
-              </p>
+              </div>
             </div>
           </div>
         </div>
@@ -203,26 +200,24 @@ export default function ResultsDisplay({
 
         {/* Recommendations */}
         <Card className="bg-primary/5 border-2 border-primary rounded-2xl mb-12">
-          <CardHeader>
+          <CardHeader className="pb-2">
             <CardTitle className="text-2xl text-primary">
               📋 建議與行動計劃
             </CardTitle>
+            <div className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line pt-2">
+              {primaryProfile.description}
+            </div>
           </CardHeader>
           <CardContent>
-            <p className="text-foreground mb-6 leading-relaxed">
-              {primaryProfile.description}
-            </p>
-            <div className="space-y-4">
+            <div className="space-y-5">
               {primaryProfile.recommendations.map((rec, idx) => (
-                <div key={idx} className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                <div key={idx} className="flex gap-4 items-start">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center mt-0.5">
                     <span className="text-sm font-bold text-primary">
                       {idx + 1}
                     </span>
                   </div>
-                  <div className="flex-1">
-                    <p className="text-foreground">{rec}</p>
-                  </div>
+                  <p className="flex-1 text-foreground leading-relaxed pt-1">{rec}</p>
                 </div>
               ))}
             </div>
@@ -238,14 +233,14 @@ export default function ResultsDisplay({
               borderColor: `${primaryProfile.color}40`,
             }}
           >
-            <div className="mb-6">
-              <p className="text-lg font-semibold text-foreground mb-2">
+            <div className="mb-7">
+              <p className="text-lg font-semibold text-foreground mb-3">
                 {guidance.intro}
               </p>
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-base text-muted-foreground leading-loose mb-1">
                 {guidance.primaryCta}
               </p>
-              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-loose">
                 {guidance.secondaryCta}
               </p>
             </div>

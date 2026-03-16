@@ -17,15 +17,18 @@ export default function Home() {
   const [results, setResults] = useState<AssessmentResult | null>(null);
 
   const handleStartTest = () => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
     setCurrentState('assessment');
   };
 
   const handleAssessmentComplete = (result: AssessmentResult) => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
     setResults(result);
     setCurrentState('results');
   };
 
   const handleRetake = () => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
     setCurrentState('landing');
     setResults(null);
   };

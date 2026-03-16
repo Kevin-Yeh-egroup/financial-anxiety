@@ -21,15 +21,16 @@ export default function HeroSection({ onStartTest }: HeroSectionProps) {
           了解您的財務焦慮
         </h1>
 
-        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed text-balance">
-          通過科學問卷深入了解您的財務焦慮根源。在5分鐘內獲得個性化分析，並掌握實踐建議。
+        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-loose">
+          通過科學問卷，深入了解您的財務焦慮根源。
+          <br className="hidden sm:block" />
+          在 5 分鐘內獲得個性化分析，並掌握實踐建議。
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
             onClick={onStartTest}
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-10 py-5 text-3xl md:text-4xl h-auto rounded-2xl"
           >
             開始檢測
           </Button>

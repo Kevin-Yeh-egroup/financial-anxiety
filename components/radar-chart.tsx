@@ -12,11 +12,11 @@ import {
 } from 'recharts';
 
 const AVERAGE_SCORES: Record<string, number> = {
-  收入: 55,
-  債務: 48,
-  規劃: 60,
-  應急: 52,
-  關係: 44,
+  生存壓力: 55,
+  未雨綢繆: 48,
+  失控無力: 60,
+  逃避凍結: 52,
+  過度警戒: 44,
 };
 
 interface RadarChartProps {

@@ -52,87 +52,62 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 4,
-    text: '薪水到手後，我感到如釋重負',
-    category: 'survival',
-  },
-  {
-    id: 5,
-    text: '我對自己的債務感到沮喪或羞愧',
-    category: 'avoidance',
-  },
-  {
-    id: 6,
     text: '我的信用卡帳單讓我不敢打開查看',
     category: 'avoidance',
   },
   {
-    id: 7,
+    id: 5,
     text: '遇到財務問題時，我傾向於拖延處理',
     category: 'avoidance',
   },
   {
-    id: 8,
+    id: 6,
     text: '我試圖隱瞞我的財務狀況，即使是對親近的人',
     category: 'avoidance',
   },
   {
-    id: 9,
+    id: 7,
     text: '我覺得自己無法掌控財務狀況，感到無力',
     category: 'helplessness',
   },
   {
-    id: 10,
-    text: '即使有收入，我仍覺得改變現狀很困難',
-    category: 'helplessness',
-  },
-  {
-    id: 11,
+    id: 8,
     text: '我不知道如何開始儲蓄或投資',
     category: 'helplessness',
   },
   {
-    id: 12,
+    id: 9,
     text: '面對財務問題，我感到束手無策',
     category: 'helplessness',
   },
   {
-    id: 13,
+    id: 10,
     text: '如果發生意外開支，我不知道如何應對',
     category: 'anticipation',
   },
   {
-    id: 14,
+    id: 11,
     text: '我經常擔心未來會發生的財務危機',
     category: 'anticipation',
   },
   {
-    id: 15,
+    id: 12,
     text: '一筆意外開支就可能讓我的生活崩潰',
     category: 'anticipation',
   },
   {
-    id: 16,
-    text: '我為尚未發生的財務災難感到恐慌',
-    category: 'anticipation',
-  },
-  {
-    id: 17,
+    id: 13,
     text: '我會反覆核對帳戶餘額或帳單，確認沒有出錯',
     category: 'hypervigilance',
   },
   {
-    id: 18,
+    id: 14,
     text: '我對自己的消費行為有很高的標準，稍有偏差就很自責',
     category: 'hypervigilance',
   },
   {
-    id: 19,
+    id: 15,
     text: '我難以享受花費，即使是在財務允許的情況下',
-    category: 'hypervigilance',
-  },
-  {
-    id: 20,
-    text: '我對財務上的小錯誤過度在意，久久無法釋懷',
     category: 'hypervigilance',
   },
 ];
@@ -410,11 +385,11 @@ export const FAQ = [
   },
   {
     question: '這項評估需要多長時間？',
-    answer: '完成20個問題的評估通常需要5-10分鐘。',
+    answer: '完成15個問題的評估通常需要4-7分鐘。',
   },
   {
     question: '評估問卷包括哪些內容？',
     answer:
-      '評估涵蓋五個關鍵領域：收入、債務、財務規劃、應急準備和人際關係中的金錢問題。',
+      '評估涵蓋五個關鍵維度：生存壓力、未雨綢繆、失控無力、逃避凍結與過度警戒。',
   },
 ];

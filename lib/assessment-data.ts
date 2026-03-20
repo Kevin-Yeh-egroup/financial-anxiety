@@ -77,7 +77,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 9,
-    text: '面對財務問題，我感到束手無策',
+    text: '我常因為怕做錯財務決定，而遲遲不敢採取行動',
     category: 'helplessness',
   },
   {
@@ -92,7 +92,7 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 12,
-    text: '一筆意外開支就可能讓我的生活崩潰',
+    text: '只要想到未來可能的突發支出，我就會影響睡眠或專注',
     category: 'anticipation',
   },
   {

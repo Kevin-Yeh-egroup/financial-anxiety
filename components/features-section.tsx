@@ -4,6 +4,8 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { FEATURES } from '@/lib/assessment-data';
 
+const FEATURE_ACCENTS = ['#6B7FD7', '#4DB6AC', '#F4A261', '#E76F51', '#9D79BC'];
+
 export default function FeaturesSection() {
   return (
     <section className="w-full bg-card py-16 px-4 md:px-8">
@@ -17,18 +19,28 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {FEATURES.map((feature, idx) => (
             <Card
               key={idx}
-              className="bg-background border border-border rounded-2xl shadow-sm hover:shadow-md transition-shadow"
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-card border border-border rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
-              <CardContent className="pt-8 pb-8 px-6">
-                <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
+              <div
+                className="h-2 w-full"
+                style={{ backgroundColor: FEATURE_ACCENTS[idx % FEATURE_ACCENTS.length] }}
+              />
+              <CardContent className="pt-6 pb-7 px-6">
+                <div className="text-5xl mb-5 text-center">{feature.icon}</div>
+                <div className="flex items-center gap-2 mb-3">
+                  <span
+                    className="w-3 h-3 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: FEATURE_ACCENTS[idx % FEATURE_ACCENTS.length] }}
+                  />
+                  <h3 className="text-lg font-bold text-foreground">
+                    {feature.title}
+                  </h3>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
               </CardContent>

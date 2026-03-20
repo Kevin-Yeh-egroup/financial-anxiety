@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { QUESTIONS } from '@/lib/assessment-data';
 
 interface HeroSectionProps {
   onStartTest: () => void;
@@ -38,7 +39,7 @@ export default function HeroSection({ onStartTest }: HeroSectionProps) {
 
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">20</div>
+            <div className="text-3xl font-bold text-primary mb-2">{QUESTIONS.length}</div>
             <p className="text-sm text-muted-foreground">深度問題</p>
           </div>
           <div className="text-center">

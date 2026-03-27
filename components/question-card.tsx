@@ -47,7 +47,7 @@ export default function QuestionCard({
 
       <Card className="bg-card border border-border rounded-2xl shadow-sm">
         <CardContent className="pt-8 pb-8 px-6 md:px-8">
-          <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-8 leading-relaxed">
+          <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-8 leading-relaxed text-pretty break-keep">
             {question}
           </h3>
 

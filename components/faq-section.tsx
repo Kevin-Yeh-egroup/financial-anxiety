@@ -15,8 +15,8 @@ export default function FAQSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             常見問題
           </h2>
-          <p className="text-lg text-muted-foreground">
-            查找有關我們評估工具的答案
+          <p className="text-lg text-muted-foreground text-pretty break-keep">
+            關於這個簡單檢測的常見疑問
           </p>
         </div>
 
@@ -44,9 +44,11 @@ export default function FAQSection() {
 
               {openIndex === idx && (
                 <CardContent className="pt-4 pb-6 px-6 border-t border-border">
-                  <p className="text-muted-foreground leading-loose">
-                    {item.answer}
-                  </p>
+                  <div className="text-muted-foreground leading-loose space-y-3 text-pretty break-keep">
+                    {item.answer.split(/\n\n+/).map((block, i) => (
+                      <p key={i}>{block.trim()}</p>
+                    ))}
+                  </div>
                 </CardContent>
               )}
             </Card>

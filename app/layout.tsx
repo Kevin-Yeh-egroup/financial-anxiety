@@ -7,8 +7,9 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: '財務焦慮檢測 - 了解您的財務壓力程度',
-  description: '通過專業問卷了解您的財務焦慮類型，獲得個性化的建議和支持。',
+  title: '財務焦慮小檢測 - 壓力下你可能較容易出現哪種反應',
+  description:
+    '簡單幾題，整理財務壓力來臨時你可能較容易陷入的焦慮傾向；僅供自我參考，附實用提醒與方向。',
   generator: 'v0.app',
   icons: {
     icon: [

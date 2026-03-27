@@ -15,13 +15,13 @@ export default function AnxietyTypesSection() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
           <span className="text-sm font-medium px-4 py-2 bg-primary/10 text-primary rounded-full">
-            5 種常見財務焦慮
+            5 種常見的壓力反應
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-6 mb-4">
-            你是哪一種類型？
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-6 mb-4 text-balance">
+            壓力一來，可能會陷入哪種焦慮？
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            財務焦慮有很多種樣貌。不論是每天為帳單擔心，還是對開口討論錢感到尷尬——你並不孤單。
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed text-pretty break-keep">
+            有人先擔心帳單與生計，有人先想到未來會不會出事，也有人先僵住、先躲開。每個人的反應節奏不同，這很正常。
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export default function AnxietyTypesSection() {
                     {profile.name}
                   </h3>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed text-pretty break-keep">
                   {profile.relatable.split('\n\n')[0]}
                 </p>
               </CardContent>
@@ -64,8 +64,8 @@ export default function AnxietyTypesSection() {
           ))}
         </div>
 
-        <p className="text-center text-sm text-muted-foreground mt-10">
-          完成評估後，您將獲得個人化的分析與建議，幫助您從容面對財務壓力。
+        <p className="text-center text-sm text-muted-foreground mt-10 max-w-2xl mx-auto text-pretty break-keep leading-relaxed">
+          做完檢測後，會依你的作答大致整理壓力下可能較常出現的反應，並附上可參考的資源連結。
         </p>
       </div>
     </section>

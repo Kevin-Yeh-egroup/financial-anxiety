@@ -12,10 +12,10 @@ export default function FeaturesSection() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            為什麼選擇我們的評估？
+            為什麼用這個檢測？
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            我們的工具結合了科學心理學研究和易用的設計，幫助您深入了解財務焦慮。
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty break-keep leading-relaxed">
+            介面簡單、題目好懂，幫你在幾分鐘內，整理壓力來了時自己可能較容易陷入哪一種焦慮。
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export default function FeaturesSection() {
                     {feature.title}
                   </h3>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed text-pretty break-keep">
                   {feature.description}
                 </p>
               </CardContent>

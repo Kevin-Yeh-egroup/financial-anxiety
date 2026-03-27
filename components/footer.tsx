@@ -10,10 +10,10 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
           <p>
-            © {currentYear} 財務焦慮檢測工具。保留所有權利。
+            © {currentYear} 財務焦慮小檢測。保留所有權利。
           </p>
           <p className="mt-2">
-            本工具僅供教育和自我評估目的。不能替代專業財務或心理健康建議。
+            本工具僅供自我整理與教育參考，不能替代專業財務或心理健康建議。
           </p>
         </div>
       </div>

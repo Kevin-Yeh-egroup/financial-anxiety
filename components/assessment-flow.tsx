@@ -52,6 +52,9 @@ export default function AssessmentFlow({ onComplete }: AssessmentFlowProps) {
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-background to-muted/10 py-8 px-4">
       <div className="max-w-4xl mx-auto">
+        <p className="text-center text-muted-foreground text-sm max-w-xl mx-auto mb-8 leading-relaxed text-pretty break-keep">
+          請依你面對財務壓力時的真實感受作答；每題沒有標準答案，選最接近現況的就好。
+        </p>
         <QuestionCard
           question={currentQuestion.text}
           currentIndex={currentIndex}
@@ -71,7 +74,7 @@ export default function AssessmentFlow({ onComplete }: AssessmentFlowProps) {
         </div>
 
         <div className="mt-8 text-center text-sm text-muted-foreground">
-          已回答 {Object.keys(answers).length} / {QUESTIONS.length} 個問題
+          已回答 {Object.keys(answers).length} / {QUESTIONS.length} 題
         </div>
       </div>
     </div>

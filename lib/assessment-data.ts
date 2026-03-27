@@ -13,10 +13,11 @@ export type AnxietyTypeKey =
 
 /**
  * 可參考資源按鈕的類型鍵（與 GUIDANCE_CONFIG 連動）。
- * 知識庫網址可於 .env 設定 NEXT_PUBLIC_KNOWLEDGE_BASE_URL（官網首頁有「理財知識庫」區塊，預設指向官網根網址）。
+ * 知識庫網址可於 .env 設定 NEXT_PUBLIC_KNOWLEDGE_BASE_URL 覆寫；預設為好理家在知識庫頁。
  */
 export const KNOWLEDGE_BASE_URL =
-  process.env.NEXT_PUBLIC_KNOWLEDGE_BASE_URL ?? 'https://www.familyfinhealth.com';
+  process.env.NEXT_PUBLIC_KNOWLEDGE_BASE_URL ??
+  'https://www.familyfinhealth.com/knowledge-base';
 
 export type ResourceActionKey =
   | 'financial-resilience'
@@ -54,8 +55,8 @@ export const RESOURCE_ACTION_DEFS: Record<
     icon: '🔍',
   },
   'knowledge-base': {
-    label: '理財知識庫',
-    description: '理財概念與案例，依自己的步調慢慢看',
+    label: '知識庫',
+    description: '理財與家庭財務主題，依自己的步調慢慢看',
     url: KNOWLEDGE_BASE_URL,
     icon: '📚',
   },
@@ -516,7 +517,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
   survival: {
     intro: '壓力一來的時候，你可能較容易被「生活開銷與收入」牽動情緒。',
     primaryCta: '很多人會先看看家庭的財務韌性狀況，了解目前的經濟結構。',
-    secondaryCta: '如果需要，也可以找顧問一起整理方向；想學預算與開銷概念時，可搭配理財知識庫。',
+    secondaryCta: '如果需要，也可以找顧問一起整理方向；想學預算與開銷概念時，可搭配知識庫。',
     actions: [
       resourceAction('financial-resilience', {
         isPrimary: true,
@@ -533,7 +534,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
   anticipation: {
     intro: '壓力一來的時候，你可能較常往「未來會不會出狀況」去想。',
     primaryCta: '有些問題其實只要先問問看，就會比較安心。很多人會從簡單問幾個問題開始。',
-    secondaryCta: '也可以看看財務韌性，或到理財知識庫了解風險與保險等概念，降低對未知的恐懼。',
+    secondaryCta: '也可以看看財務韌性，或到知識庫了解風險與保險等概念，降低對未知的恐懼。',
     actions: [
       resourceAction('ask-ivy', {
         isPrimary: true,
@@ -553,7 +554,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
   helplessness: {
     intro: '壓力一來的時候，你可能較容易覺得事情太多、不知道先從哪裡下手。',
     primaryCta: '很多人會先找人一起整理方向。',
-    secondaryCta: '也可以先問問AI，或到理財知識庫從一個小觀念開始。',
+    secondaryCta: '也可以先問問AI，或到知識庫從一個小觀念開始。',
     actions: [
       resourceAction('online-consultation', {
         isPrimary: true,
@@ -570,7 +571,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
   avoidance: {
     intro: '壓力一來的時候，你可能較容易先把事情放著、晚一點再面對——這其實很常見。',
     primaryCta: '如果想慢慢開始，可以先從壓力最小的方式試試看。',
-    secondaryCta: '也可以看看詐騙防禦、理財知識庫，用輕量的方式靠近財務議題。',
+    secondaryCta: '也可以看看詐騙防禦、知識庫，用輕量的方式靠近財務議題。',
     actions: [
       resourceAction('ask-ivy', {
         isPrimary: true,
@@ -590,7 +591,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
   hypervigilance: {
     intro: '壓力一來的時候，你可能較容易反覆檢查、對自己要求很高。',
     primaryCta: '很多人會先看看家庭財務韌性，了解自己真實的安全程度。',
-    secondaryCta: '也可以問問AI，或到理財知識庫調整對「夠好」的期待。',
+    secondaryCta: '也可以問問AI，或到知識庫調整對「夠好」的期待。',
     actions: [
       resourceAction('financial-resilience', {
         isPrimary: true,

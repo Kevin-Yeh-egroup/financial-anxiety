@@ -56,7 +56,7 @@ export const RESOURCE_ACTION_DEFS: Record<
   },
   'knowledge-base': {
     label: '知識庫',
-    description: '理財與家庭財務主題，依自己的步調慢慢看',
+    description: '好讀的理財與家庭主題，用你舒服的節奏慢慢探索',
     url: KNOWLEDGE_BASE_URL,
     icon: '📚',
   },
@@ -517,7 +517,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
   survival: {
     intro: '壓力一來的時候，你可能較容易被「生活開銷與收入」牽動情緒。',
     primaryCta: '很多人會先看看家庭的財務韌性狀況，了解目前的經濟結構。',
-    secondaryCta: '如果需要，也可以找顧問一起整理方向；想學預算與開銷概念時，可搭配知識庫。',
+    secondaryCta: '如果需要，也可以找顧問一起整理方向；想多認識預算與開銷，知識庫裡也有不少實用好讀的內容。',
     actions: [
       resourceAction('financial-resilience', {
         isPrimary: true,
@@ -527,14 +527,14 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
         description: '找顧問一起整理方向、連結資源',
       }),
       resourceAction('knowledge-base', {
-        description: '預算、開銷與理財入門，依自己的步調慢慢看',
+        description: '預算、開銷與生活理財，挑有興趣的主題慢慢充實',
       }),
     ],
   },
   anticipation: {
     intro: '壓力一來的時候，你可能較常往「未來會不會出狀況」去想。',
     primaryCta: '有些問題其實只要先問問看，就會比較安心。很多人會從簡單問幾個問題開始。',
-    secondaryCta: '也可以看看財務韌性，或到知識庫了解風險與保險等概念，降低對未知的恐懼。',
+    secondaryCta: '也可以看看財務韌性；知識庫裡有風險、保險等主題，陪你更有把握地為未來做準備。',
     actions: [
       resourceAction('ask-ivy', {
         isPrimary: true,
@@ -544,7 +544,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
         description: '了解自己的安全程度，也許能讓擔心少一點',
       }),
       resourceAction('knowledge-base', {
-        description: '風險管理、保險與理財概念，慢慢補齊',
+        description: '風險與保險等觀念，用輕鬆閱讀為自己多存一點安心感',
       }),
       resourceAction('online-consultation', {
         description: '想找人聊聊未來規劃或情緒負擔時可試試',
@@ -554,7 +554,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
   helplessness: {
     intro: '壓力一來的時候，你可能較容易覺得事情太多、不知道先從哪裡下手。',
     primaryCta: '很多人會先找人一起整理方向。',
-    secondaryCta: '也可以先問問AI，或到知識庫從一個小觀念開始。',
+    secondaryCta: '也可以先問問AI；知識庫裡短文很多，挑一篇有興趣的，就是很好的起點。',
     actions: [
       resourceAction('online-consultation', {
         isPrimary: true,
@@ -564,14 +564,14 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
         description: '先釐清問題，也許就知道從哪裡開始了',
       }),
       resourceAction('knowledge-base', {
-        description: '入門文章與概念，不必一次全搞懂',
+        description: '入門觀念與故事，每一則都是為自己加分的小收穫',
       }),
     ],
   },
   avoidance: {
     intro: '壓力一來的時候，你可能較容易先把事情放著、晚一點再面對——這其實很常見。',
     primaryCta: '如果想慢慢開始，可以先從壓力最小的方式試試看。',
-    secondaryCta: '也可以看看詐騙防禦、知識庫，用輕量的方式靠近財務議題。',
+    secondaryCta: '也可以看看詐騙防禦；知識庫裡好讀的內容，能陪你用輕鬆方式認識財務。',
     actions: [
       resourceAction('ask-ivy', {
         isPrimary: true,
@@ -581,7 +581,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
         description: '也許可以先了解一些基本的自我保護',
       }),
       resourceAction('knowledge-base', {
-        description: '小步閱讀，降低面對財務的心理門檻',
+        description: '短文與圖文，用零壓力的閱讀慢慢累積對錢的熟悉感',
       }),
       resourceAction('online-consultation', {
         description: '需要人陪著面對帳單或債務時可試試',
@@ -591,7 +591,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
   hypervigilance: {
     intro: '壓力一來的時候，你可能較容易反覆檢查、對自己要求很高。',
     primaryCta: '很多人會先看看家庭財務韌性，了解自己真實的安全程度。',
-    secondaryCta: '也可以問問AI，或到知識庫調整對「夠好」的期待。',
+    secondaryCta: '也可以問問AI；知識庫裡有不少觀點與案例，能陪你更溫柔地看待自己的理財節奏。',
     actions: [
       resourceAction('financial-resilience', {
         isPrimary: true,
@@ -601,7 +601,7 @@ export const GUIDANCE_CONFIG: Record<AnxietyTypeKey, GuidanceConfig> = {
         description: '聊聊看，幫助建立合理的預期與節奏',
       }),
       resourceAction('knowledge-base', {
-        description: '理財觀念與案例，練習放鬆一點點',
+        description: '觀念與真實故事，幫你多給自己一點肯定與呼吸空間',
       }),
       resourceAction('online-consultation', {
         description: '若焦慮已影響生活，可尋求專業陪伴',

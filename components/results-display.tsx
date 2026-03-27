@@ -112,7 +112,7 @@ function ProfileHeroBlock({
           （{score}%）
         </span>
       </p>
-      <div className="text-base text-foreground leading-loose text-left whitespace-pre-line text-pretty break-keep">
+      <div className="text-base text-foreground leading-loose text-center whitespace-pre-line text-pretty break-keep">
         {relatableBody}
       </div>
     </div>

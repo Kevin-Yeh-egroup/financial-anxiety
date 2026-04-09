@@ -2,9 +2,13 @@
 
 import React, { useState } from 'react';
 import HeroSection from '@/components/hero-section';
+import LandingHowItWorks from '@/components/landing-how-it-works';
+import LandingMobileStickyCta from '@/components/landing-mobile-sticky-cta';
+import LandingClosingCta from '@/components/landing-closing-cta';
 import AssessmentFlow from '@/components/assessment-flow';
 import ResultsDisplay from '@/components/results-display';
 import FeaturesSection from '@/components/features-section';
+import LandingMoreFeaturesSection from '@/components/landing-more-features-section';
 import AnxietyTypesSection from '@/components/anxiety-types-section';
 import FAQSection from '@/components/faq-section';
 import Footer from '@/components/footer';
@@ -37,11 +41,17 @@ export default function Home() {
     <main className="w-full">
       {currentState === 'landing' && (
         <>
-          <HeroSection onStartTest={handleStartTest} />
-          <AnxietyTypesSection />
-          <FeaturesSection />
-          <FAQSection />
-          <Footer />
+          <div className="pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] md:pb-0">
+            <HeroSection onStartTest={handleStartTest} />
+            <LandingHowItWorks />
+            <FeaturesSection />
+            <AnxietyTypesSection />
+            <FAQSection />
+            <LandingMoreFeaturesSection />
+            <LandingClosingCta onStartTest={handleStartTest} />
+            <Footer />
+          </div>
+          <LandingMobileStickyCta onStartTest={handleStartTest} />
         </>
       )}
 

@@ -8,22 +8,29 @@ const FEATURE_ACCENTS = ['#6B7FD7', '#4DB6AC', '#F4A261', '#E76F51', '#9D79BC'];
 
 export default function FeaturesSection() {
   return (
-    <section className="w-full bg-card py-16 px-4 md:px-8">
+    <section
+      id="what-you-get"
+      aria-labelledby="features-heading"
+      className="w-full bg-card py-16 md:py-20 px-4 sm:px-6 md:px-8 scroll-mt-20"
+    >
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            為什麼用這個檢測？
+        <div className="text-center mb-12 md:mb-14">
+          <h2
+            id="features-heading"
+            className="text-2xl md:text-4xl font-bold text-foreground mb-4 text-balance"
+          >
+            做完檢測，你會得到什麼？
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty break-keep leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground max-w-prose mx-auto text-pretty break-keep leading-[1.6]">
             介面簡單、題目好懂，幫你在幾分鐘內，整理壓力來了時自己可能較容易陷入哪一種焦慮。
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           {FEATURES.map((feature, idx) => (
             <Card
               key={idx}
-              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-card border border-border rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-card border border-border rounded-2xl shadow-sm motion-safe:transition-shadow motion-safe:duration-300 hover:shadow-md motion-safe:hover:-translate-y-0.5 overflow-hidden"
             >
               <div
                 className="h-2 w-full"
@@ -40,7 +47,7 @@ export default function FeaturesSection() {
                     {feature.title}
                   </h3>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed text-pretty break-keep">
+                <p className="text-sm md:text-[0.9375rem] text-muted-foreground leading-[1.6] text-pretty break-keep">
                   {feature.description}
                 </p>
               </CardContent>
